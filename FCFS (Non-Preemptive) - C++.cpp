@@ -63,3 +63,15 @@ tuple<vector<Process*>, double, int> fcfs_scheduling(vector<Process*>& processes
     vector<pair<Process*, int>> io_list;
     vector<Process*> completed_processes;
     int cpu_busy_time = 0;
+
+    while (!ready_queue.empty() || !io_list.empty()) {
+        // Move I/O-completed processes back to ready queue
+        vector<pair<Process*, int>> still_in_io;
+        for (auto& [p, t] : io_list) {
+            if (t <= current_time) {
+                ready_queue.push(p);
+                p->last_end_time = t;
+            } else {
+                still_in_io.push_back({p, t});
+            }
+        }
