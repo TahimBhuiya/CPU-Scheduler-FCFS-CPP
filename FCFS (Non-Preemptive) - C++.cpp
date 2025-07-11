@@ -26,3 +26,11 @@ public:
         return current_burst >= burst_times.size();
     }
 };
+
+
+void display_status(
+    int current_time,
+    Process* running_process,
+    queue<Process*> ready_queue,
+    vector<pair<Process*, int>> io_list
+)
