@@ -33,4 +33,24 @@ void display_status(
     Process* running_process,
     queue<Process*> ready_queue,
     vector<pair<Process*, int>> io_list
-)
+){
+    cout << "\nCurrent Execution Time: " << current_time << endl;
+
+    if (running_process)
+        cout << "Running Process: P" << running_process->pid << endl;
+    else
+        cout << "Running Process: None" << endl;
+
+    cout << "Ready Queue: [";
+    while (!ready_queue.empty()) {
+        Process* p = ready_queue.front(); ready_queue.pop();
+        cout << "(P" << p->pid << ", " << p->burst_times[p->current_burst] << ") ";
+    }
+    cout << "]" << endl;
+
+    cout << "Processes in I/O: [";
+    for (auto& [p, t] : io_list) {
+        cout << "(P" << p->pid << ", " << t - current_time << ") ";
+    }
+    cout << "]" << endl;
+}
