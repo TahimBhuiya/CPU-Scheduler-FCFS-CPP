@@ -4,3 +4,25 @@
 #include <tuple>
 #include <iomanip>
 #include <algorithm>
+
+
+using namespace std;
+
+class Process {
+public:
+    int pid;
+    vector<int> burst_times;
+    vector<int> io_times;
+    int current_burst = 0;
+    int waiting_time = 0;
+    int turnaround_time = 0;
+    int response_time = -1;
+    int last_end_time = 0;
+
+    Process(int id, const vector<int>& bursts, const vector<int>& ios)
+        : pid(id), burst_times(bursts), io_times(ios) {}
+
+    bool is_completed() const {
+        return current_burst >= burst_times.size();
+    }
+};
