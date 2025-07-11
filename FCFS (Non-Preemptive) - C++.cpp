@@ -54,3 +54,12 @@ void display_status(
     }
     cout << "]" << endl;
 }
+
+tuple<vector<Process*>, double, int> fcfs_scheduling(vector<Process*>& processes) {
+    int current_time = 0;
+    queue<Process*> ready_queue;
+    for (auto* p : processes) ready_queue.push(p);
+
+    vector<pair<Process*, int>> io_list;
+    vector<Process*> completed_processes;
+    int cpu_busy_time = 0;
