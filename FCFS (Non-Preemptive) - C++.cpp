@@ -84,3 +84,7 @@ tuple<vector<Process*>, double, int> fcfs_scheduling(vector<Process*>& processes
 
             if (process->response_time == -1)
                 process->response_time = current_time;
+            
+            int waiting_since_last = current_time - process->last_end_time;
+            if (waiting_since_last > 0)
+                process->waiting_time += waiting_since_last;
