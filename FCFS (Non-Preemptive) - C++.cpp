@@ -97,4 +97,8 @@ tuple<vector<Process*>, double, int> fcfs_scheduling(vector<Process*>& processes
             if (process->current_burst < process->burst_times.size()) {
                 int io_time = process->io_times[process->current_burst - 1];
                 io_list.push_back({process, current_time + io_time});
+            } else {
+                process->turnaround_time = current_time;
+                completed_processes.push_back(process);
+                cout << "Process P" << process->pid << " has completed its total execution." << endl;
             }
