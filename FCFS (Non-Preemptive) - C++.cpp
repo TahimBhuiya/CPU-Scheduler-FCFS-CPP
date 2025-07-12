@@ -102,3 +102,13 @@ tuple<vector<Process*>, double, int> fcfs_scheduling(vector<Process*>& processes
                 completed_processes.push_back(process);
                 cout << "Process P" << process->pid << " has completed its total execution." << endl;
             }
+
+        } else {
+            // No process in ready queue, advance time to next I/O completion
+            if (!io_list.empty()) {
+                int next_io_completion = min_element(io_list.begin(), io_list.end(),
+                    [](auto& a, auto& b) { return a.second < b.second; })->second;
+                current_time = next_io_completion;
+            } else break; // Nothing left to process
+        }
+    }
