@@ -93,3 +93,8 @@ tuple<vector<Process*>, double, int> fcfs_scheduling(vector<Process*>& processes
             current_time += burst_time;
             cpu_busy_time += burst_time;
             process->current_burst++;
+
+            if (process->current_burst < process->burst_times.size()) {
+                int io_time = process->io_times[process->current_burst - 1];
+                io_list.push_back({process, current_time + io_time});
+            }
