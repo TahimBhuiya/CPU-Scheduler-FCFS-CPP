@@ -75,3 +75,7 @@ tuple<vector<Process*>, double, int> fcfs_scheduling(vector<Process*>& processes
                 still_in_io.push_back({p, t});
             }
         }
+        io_list = still_in_io;
+
+        Process* running_process = ready_queue.empty() ? nullptr : ready_queue.front();
+        display_status(current_time, running_process, ready_queue, io_list);
