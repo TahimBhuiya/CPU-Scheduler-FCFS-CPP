@@ -79,3 +79,8 @@ tuple<vector<Process*>, double, int> fcfs_scheduling(vector<Process*>& processes
 
         Process* running_process = ready_queue.empty() ? nullptr : ready_queue.front();
         display_status(current_time, running_process, ready_queue, io_list);
+        if (!ready_queue.empty()) {
+            Process* process = ready_queue.front(); ready_queue.pop();
+
+            if (process->response_time == -1)
+                process->response_time = current_time;
