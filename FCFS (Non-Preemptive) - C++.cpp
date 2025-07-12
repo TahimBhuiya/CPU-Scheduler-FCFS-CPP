@@ -104,7 +104,6 @@ tuple<vector<Process*>, double, int> fcfs_scheduling(vector<Process*>& processes
             }
 
         } else {
-            // No process in ready queue, advance time to next I/O completion
             if (!io_list.empty()) {
                 int next_io_completion = min_element(io_list.begin(), io_list.end(),
                     [](auto& a, auto& b) { return a.second < b.second; })->second;
@@ -112,3 +111,9 @@ tuple<vector<Process*>, double, int> fcfs_scheduling(vector<Process*>& processes
             } else break; // Nothing left to process
         }
     }
+
+    int total_time = current_time;
+    double cpu_utilization = total_time > 0 ? (cpu_busy_time * 100.0 / total_time) : 0.0;
+
+    return {completed_processes, cpu_utilization, total_time};
+}
