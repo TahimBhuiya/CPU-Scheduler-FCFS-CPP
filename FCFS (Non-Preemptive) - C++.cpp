@@ -130,3 +130,7 @@ int main() {
         new Process(7, {14, 17, 11, 15, 4, 7, 16, 10}, {46, 41, 42, 21, 32, 19, 33}),
         new Process(8, {4, 5, 6, 14, 16, 6}, {14, 33, 51, 73, 87})
     };
+
+    auto [completed_processes, cpu_utilization, total_time] = fcfs_scheduling(processes);
+
+
