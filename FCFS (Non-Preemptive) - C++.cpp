@@ -160,4 +160,9 @@ int main() {
              << setw(10) << p->response_time << endl;
     }
 
+    cout << left << setw(12) << "\nAverage"
+        << setw(10) << avg_waiting_time
+        << setw(12) << avg_turnaround_time
+        << setw(10) << avg_response_time << endl;
+
 
