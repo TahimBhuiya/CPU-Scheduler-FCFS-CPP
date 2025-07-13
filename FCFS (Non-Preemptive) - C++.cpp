@@ -117,3 +117,16 @@ tuple<vector<Process*>, double, int> fcfs_scheduling(vector<Process*>& processes
 
     return {completed_processes, cpu_utilization, total_time};
 }
+
+
+int main() {
+    vector<Process*> processes = {
+        new Process(1, {5, 3, 5, 4, 6, 4, 3, 4}, {27, 31, 43, 18, 22, 26, 24}),
+        new Process(2, {4, 5, 7, 12, 9, 4, 9, 7, 8}, {48, 44, 42, 37, 76, 41, 31, 43}),
+        new Process(3, {8, 12, 18, 14, 4, 15, 14, 5, 6}, {33, 41, 65, 21, 61, 18, 26, 31}),
+        new Process(4, {3, 4, 5, 3, 4, 5, 6, 5, 3}, {35, 41, 45, 51, 61, 54, 82, 77}),
+        new Process(5, {16, 17, 5, 16, 7, 13, 11, 6, 3, 4}, {24, 21, 36, 26, 31, 28, 21, 13, 11}),
+        new Process(6, {11, 4, 5, 6, 7, 9, 12, 15, 8}, {22, 8, 10, 12, 14, 18, 24, 30}),
+        new Process(7, {14, 17, 11, 15, 4, 7, 16, 10}, {46, 41, 42, 21, 32, 19, 33}),
+        new Process(8, {4, 5, 6, 14, 16, 6}, {14, 33, 51, 73, 87})
+    };
