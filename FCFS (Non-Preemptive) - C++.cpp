@@ -142,4 +142,8 @@ int main() {
         total_response_time += p->response_time;
     }
 
+    double avg_waiting_time = total_waiting_time / (double)num_processes;
+    double avg_turnaround_time = total_turnaround_time / (double)num_processes;
+    double avg_response_time = total_response_time / (double)num_processes;
+
 
