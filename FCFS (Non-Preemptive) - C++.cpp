@@ -133,4 +133,7 @@ int main() {
 
     auto [completed_processes, cpu_utilization, total_time] = fcfs_scheduling(processes);
 
+    int total_waiting_time = 0, total_turnaround_time = 0, total_response_time = 0;
+    int num_processes = completed_processes.size();
+
 
