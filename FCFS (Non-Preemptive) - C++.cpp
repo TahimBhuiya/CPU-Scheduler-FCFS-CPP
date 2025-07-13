@@ -146,4 +146,9 @@ int main() {
     double avg_turnaround_time = total_turnaround_time / (double)num_processes;
     double avg_response_time = total_response_time / (double)num_processes;
 
+    cout << "\nResults at the end of the simulation:\n";
+    cout << "Total time needed to complete all processes: " << total_time << endl;
+    cout << fixed << setprecision(2);
+    cout << "CPU Utilization: " << cpu_utilization << "%" << endl;
+
 
