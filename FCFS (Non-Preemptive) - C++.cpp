@@ -136,4 +136,10 @@ int main() {
     int total_waiting_time = 0, total_turnaround_time = 0, total_response_time = 0;
     int num_processes = completed_processes.size();
 
+    for (auto* p : completed_processes) {
+        total_waiting_time += p->waiting_time;
+        total_turnaround_time += p->turnaround_time;
+        total_response_time += p->response_time;
+    }
+
 
