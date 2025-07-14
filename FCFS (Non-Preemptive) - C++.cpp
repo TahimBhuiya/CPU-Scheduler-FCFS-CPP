@@ -57,19 +57,23 @@ void display_status(
         cout << "Running Process: None" << endl;
 
 
+    // Display the processes currently in the ready queue along with their next CPU burst time
     cout << "Ready Queue: [";
     while (!ready_queue.empty()) {
-        Process* p = ready_queue.front(); ready_queue.pop();
+        Process* p = ready_queue.front(); 
+        ready_queue.pop();
         cout << "(P" << p->pid << ", " << p->burst_times[p->current_burst] << ") ";
     }
     cout << "]" << endl;
 
+    // Display the processes currently performing I/O with their remaining I/O time
     cout << "Processes in I/O: [";
     for (auto& [p, t] : io_list) {
         cout << "(P" << p->pid << ", " << t - current_time << ") ";
     }
     cout << "]" << endl;
 }
+
 
 tuple<vector<Process*>, double, int> fcfs_scheduling(vector<Process*>& processes) {
     int current_time = 0;
