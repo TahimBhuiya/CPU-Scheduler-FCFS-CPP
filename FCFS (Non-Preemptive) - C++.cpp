@@ -10,26 +10,30 @@
 
 
 
-using namespace std;
+using namespace std;  // Allow usage of standard library names without std:: prefix
 
+// Class representing a process with CPU bursts and I/O times
 class Process {
 public:
-    int pid;
-    vector<int> burst_times;
-    vector<int> io_times;
-    int current_burst = 0;
-    int waiting_time = 0;
-    int turnaround_time = 0;
-    int response_time = -1;
-    int last_end_time = 0;
+    int pid;                    // Process ID
+    vector<int> burst_times;    // List of CPU burst durations
+    vector<int> io_times;       // List of I/O durations (one less than bursts)
+    int current_burst = 0;      // Index of the current CPU burst
+    int waiting_time = 0;       // Total waiting time accumulated
+    int turnaround_time = 0;    // Total turnaround time for the process
+    int response_time = -1;     // Time when process first got CPU (-1 if not started)
+    int last_end_time = 0;      // Last time process finished CPU or I/O
 
+    // Constructor to initialize process ID, CPU bursts, and I/O times
     Process(int id, const vector<int>& bursts, const vector<int>& ios)
         : pid(id), burst_times(bursts), io_times(ios) {}
 
+    // Check if all CPU bursts have been completed
     bool is_completed() const {
         return current_burst >= burst_times.size();
     }
 };
+
 
 
 void display_status(
