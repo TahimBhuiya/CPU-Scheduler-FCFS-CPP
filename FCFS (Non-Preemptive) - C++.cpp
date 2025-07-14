@@ -91,17 +91,21 @@ tuple<vector<Process*>, double, int> fcfs_scheduling(vector<Process*>& processes
     int cpu_busy_time = 0;                      // Total time CPU is actively executing processes
 
 
+    // Continue simulation while there are processes either ready or performing I/O
     while (!ready_queue.empty() || !io_list.empty()) {
-        // Move I/O-completed processes back to ready queue
-        vector<pair<Process*, int>> still_in_io;
+        // Check all processes in I/O and move those whose I/O is complete back to the ready queue
+        vector<pair<Process*, int>> still_in_io;  // Temporary list for processes still in I/O
         for (auto& [p, t] : io_list) {
             if (t <= current_time) {
+                // I/O complete, move process back to ready queue
                 ready_queue.push(p);
-                p->last_end_time = t;
+                p->last_end_time = t;  // Update last end time to I/O completion time
             } else {
+                // Process still performing I/O, keep it in the list
                 still_in_io.push_back({p, t});
             }
         }
+
         io_list = still_in_io;
 
         Process* running_process = ready_queue.empty() ? nullptr : ready_queue.front();
