@@ -147,13 +147,17 @@ tuple<vector<Process*>, double, int> fcfs_scheduling(vector<Process*>& processes
 
 
         } else {
+            // If no process is ready to run, advance time to the next I/O completion
             if (!io_list.empty()) {
+                // Find the earliest I/O completion time among all processes in I/O
                 int next_io_completion = min_element(io_list.begin(), io_list.end(),
                     [](auto& a, auto& b) { return a.second < b.second; })->second;
-                current_time = next_io_completion;
-            } else break; // Nothing left to process
+                current_time = next_io_completion;  // Fast-forward simulation time
+            } else
+                break;  // No processes left in ready queue or I/O, end simulation
         }
     }
+
 
     int total_time = current_time;
     double cpu_utilization = total_time > 0 ? (cpu_busy_time * 100.0 / total_time) : 0.0;
