@@ -106,33 +106,45 @@ tuple<vector<Process*>, double, int> fcfs_scheduling(vector<Process*>& processes
             }
         }
 
+        // Update the I/O list with only those processes still performing I/O
         io_list = still_in_io;
 
+        // Identify the process currently running on the CPU (front of ready queue)
         Process* running_process = ready_queue.empty() ? nullptr : ready_queue.front();
+        // Display the current simulation status
         display_status(current_time, running_process, ready_queue, io_list);
-        if (!ready_queue.empty()) {
-            Process* process = ready_queue.front(); ready_queue.pop();
 
+        if (!ready_queue.empty()) {
+            // Dequeue the next process to run (FCFS)
+            Process* process = ready_queue.front(); 
+            ready_queue.pop();
+
+            // Record response time if this is the first CPU access for the process
             if (process->response_time == -1)
                 process->response_time = current_time;
 
+            // Calculate waiting time since last CPU or I/O completion
             int waiting_since_last = current_time - process->last_end_time;
             if (waiting_since_last > 0)
                 process->waiting_time += waiting_since_last;
 
+            // Fetch current CPU burst time and advance simulation clock
             int burst_time = process->burst_times[process->current_burst];
             current_time += burst_time;
             cpu_busy_time += burst_time;
-            process->current_burst++;
+            process->current_burst++;  // Move to next burst
 
             if (process->current_burst < process->burst_times.size()) {
+                // Schedule next I/O operation after this CPU burst
                 int io_time = process->io_times[process->current_burst - 1];
                 io_list.push_back({process, current_time + io_time});
             } else {
+                // Process has completed all CPU bursts
                 process->turnaround_time = current_time;
                 completed_processes.push_back(process);
                 cout << "Process P" << process->pid << " has completed its total execution." << endl;
             }
+
 
         } else {
             if (!io_list.empty()) {
