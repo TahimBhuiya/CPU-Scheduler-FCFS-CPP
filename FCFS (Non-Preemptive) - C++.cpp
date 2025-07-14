@@ -165,4 +165,9 @@ int main() {
         << setw(12) << avg_turnaround_time
         << setw(10) << avg_response_time << endl;
 
+            
+    for (auto* p : processes) delete p;
+
+    return 0;
+}
 
