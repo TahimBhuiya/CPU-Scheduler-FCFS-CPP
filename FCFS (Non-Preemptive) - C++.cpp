@@ -36,18 +36,26 @@ public:
 
 
 
+// Display the current simulation status including:
+// - The current simulation time
+// - The process currently running on the CPU (if any)
+// - The contents of the ready queue
+// - The list of processes currently performing I/O and their remaining I/O times
 void display_status(
     int current_time,
     Process* running_process,
     queue<Process*> ready_queue,
     vector<pair<Process*, int>> io_list
-){
+) {
+    // Print the current simulation time
     cout << "\nCurrent Execution Time: " << current_time << endl;
 
+    // Print the currently running process or indicate if CPU is idle
     if (running_process)
         cout << "Running Process: P" << running_process->pid << endl;
     else
         cout << "Running Process: None" << endl;
+
 
     cout << "Ready Queue: [";
     while (!ready_queue.empty()) {
