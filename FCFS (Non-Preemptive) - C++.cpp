@@ -1,9 +1,13 @@
-#include <iostream>
-#include <vector>
-#include <queue>
-#include <tuple>
-#include <iomanip>
-#include <algorithm>
+//Created by Tahim Bhuiya
+
+
+#include <iostream>   // for input/output operations
+#include <vector>     // for dynamic arrays (std::vector)
+#include <queue>      // for queue data structure (std::queue)
+#include <tuple>      // for returning multiple values (std::tuple)
+#include <iomanip>    // for formatted output (std::setprecision, std::setw)
+#include <algorithm>  // for algorithms like std::min_element
+
 
 
 using namespace std;
