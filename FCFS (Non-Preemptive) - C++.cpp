@@ -75,14 +75,21 @@ void display_status(
 }
 
 
+// FCFS scheduling simulation with I/O handling.
+// Returns a tuple containing:
+// - vector of completed processes with updated metrics,
+// - CPU utilization percentage,
+// - total time taken for all processes to complete.
 tuple<vector<Process*>, double, int> fcfs_scheduling(vector<Process*>& processes) {
-    int current_time = 0;
-    queue<Process*> ready_queue;
-    for (auto* p : processes) ready_queue.push(p);
+    int current_time = 0;               // Simulation clock starting at time 0
+    queue<Process*> ready_queue;        // Queue holding processes ready to execute
+    for (auto* p : processes) 
+        ready_queue.push(p);            // Initialize ready queue with all processes
 
-    vector<pair<Process*, int>> io_list;
-    vector<Process*> completed_processes;
-    int cpu_busy_time = 0;
+    vector<pair<Process*, int>> io_list;       // List of processes currently in I/O with their completion times
+    vector<Process*> completed_processes;      // List to store processes that have completed execution
+    int cpu_busy_time = 0;                      // Total time CPU is actively executing processes
+
 
     while (!ready_queue.empty() || !io_list.empty()) {
         // Move I/O-completed processes back to ready queue
