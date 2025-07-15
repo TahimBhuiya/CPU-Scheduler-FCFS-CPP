@@ -159,10 +159,15 @@ tuple<vector<Process*>, double, int> fcfs_scheduling(vector<Process*>& processes
     }
 
 
+    // Total simulation time is the final value of the simulation clock
     int total_time = current_time;
+
+    // Calculate CPU Utilization as the percentage of time CPU was busy
     double cpu_utilization = total_time > 0 ? (cpu_busy_time * 100.0 / total_time) : 0.0;
 
+    // Return completed processes, CPU utilization, and total time
     return {completed_processes, cpu_utilization, total_time};
+
 }
 
 
