@@ -189,7 +189,13 @@ int main() {
     };
 
 
+    // Run the FCFS scheduling simulation
+    // Returns:
+    // - completed_processes: list of all processes after completion with their metrics
+    // - cpu_utilization: percentage of time CPU was busy
+    // - total_time: total time taken to complete all processes
     auto [completed_processes, cpu_utilization, total_time] = fcfs_scheduling(processes);
+
 
     int total_waiting_time = 0, total_turnaround_time = 0, total_response_time = 0;
     int num_processes = completed_processes.size();
