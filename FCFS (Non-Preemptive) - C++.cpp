@@ -230,13 +230,21 @@ int main() {
 
 
 
-    cout << left << setw(12) << "\nProcess" << setw(10) << "Tw" << setw(12) << "Ttr" << setw(10) << "Tr" << endl;
+    // Print table header for individual process metrics
+    // Tw  = Waiting Time, Ttr = Turnaround Time, Tr = Response Time
+    cout << left << setw(12) << "\nProcess" 
+         << setw(10) << "Tw" 
+         << setw(12) << "Ttr" 
+         << setw(10) << "Tr" << endl;
+
+    // Print metrics for each completed process
     for (auto* p : completed_processes) {
         cout << "P" << left << setw(11) << p->pid
              << setw(10) << p->waiting_time
              << setw(12) << p->turnaround_time
              << setw(10) << p->response_time << endl;
     }
+
 
     cout << left << setw(12) << "\nAverage"
         << setw(10) << avg_waiting_time
