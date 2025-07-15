@@ -172,6 +172,11 @@ tuple<vector<Process*>, double, int> fcfs_scheduling(vector<Process*>& processes
 
 
 int main() {
+    // Create and initialize a list of 8 processes
+    // Each process has:
+    // - A unique process ID (pid)
+    // - A vector of CPU burst times
+    // - A vector of I/O times (one less than the number of CPU bursts)
     vector<Process*> processes = {
         new Process(1, {5, 3, 5, 4, 6, 4, 3, 4}, {27, 31, 43, 18, 22, 26, 24}),
         new Process(2, {4, 5, 7, 12, 9, 4, 9, 7, 8}, {48, 44, 42, 37, 76, 41, 31, 43}),
@@ -182,6 +187,7 @@ int main() {
         new Process(7, {14, 17, 11, 15, 4, 7, 16, 10}, {46, 41, 42, 21, 32, 19, 33}),
         new Process(8, {4, 5, 6, 14, 16, 6}, {14, 33, 51, 73, 87})
     };
+
 
     auto [completed_processes, cpu_utilization, total_time] = fcfs_scheduling(processes);
 
