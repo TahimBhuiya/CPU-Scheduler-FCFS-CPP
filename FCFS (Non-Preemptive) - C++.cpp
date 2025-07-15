@@ -197,14 +197,17 @@ int main() {
     auto [completed_processes, cpu_utilization, total_time] = fcfs_scheduling(processes);
 
 
+    // Initialize totals for performance metrics
     int total_waiting_time = 0, total_turnaround_time = 0, total_response_time = 0;
-    int num_processes = completed_processes.size();
+    int num_processes = completed_processes.size();  // Number of processes completed
 
+    // Accumulate waiting, turnaround, and response times for all completed processes
     for (auto* p : completed_processes) {
         total_waiting_time += p->waiting_time;
         total_turnaround_time += p->turnaround_time;
         total_response_time += p->response_time;
     }
+
 
     double avg_waiting_time = total_waiting_time / (double)num_processes;
     double avg_turnaround_time = total_turnaround_time / (double)num_processes;
