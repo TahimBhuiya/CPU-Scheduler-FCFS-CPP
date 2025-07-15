@@ -218,10 +218,16 @@ int main() {
     double avg_response_time = total_response_time / (double)num_processes;
 
 
+    // Display overall results of the simulation
     cout << "\nResults at the end of the simulation:\n";
+
+    // Show the total time taken to complete all processes
     cout << "Total time needed to complete all processes: " << total_time << endl;
+
+    // Format output to 2 decimal places and display CPU utilization
     cout << fixed << setprecision(2);
     cout << "CPU Utilization: " << cpu_utilization << "%" << endl;
+
 
 
     cout << left << setw(12) << "\nProcess" << setw(10) << "Tw" << setw(12) << "Ttr" << setw(10) << "Tr" << endl;
