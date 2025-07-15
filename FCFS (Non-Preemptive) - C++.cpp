@@ -246,14 +246,17 @@ int main() {
     }
 
 
+    // Print average performance metrics across all processes
     cout << left << setw(12) << "\nAverage"
-        << setw(10) << avg_waiting_time
-        << setw(12) << avg_turnaround_time
-        << setw(10) << avg_response_time << endl;
+         << setw(10) << avg_waiting_time
+         << setw(12) << avg_turnaround_time
+         << setw(10) << avg_response_time << endl;
 
-            
-    for (auto* p : processes) delete p;
+    // Clean up dynamically allocated memory
+    for (auto* p : processes) 
+        delete p;
 
-    return 0;
+    return 0;  // Indicate successful program termination
 }
+
 
