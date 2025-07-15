@@ -209,9 +209,14 @@ int main() {
     }
 
 
+    // Calculate average performance metrics
+    // - Average Waiting Time
+    // - Average Turnaround Time
+    // - Average Response Time
     double avg_waiting_time = total_waiting_time / (double)num_processes;
     double avg_turnaround_time = total_turnaround_time / (double)num_processes;
     double avg_response_time = total_response_time / (double)num_processes;
+
 
     cout << "\nResults at the end of the simulation:\n";
     cout << "Total time needed to complete all processes: " << total_time << endl;
