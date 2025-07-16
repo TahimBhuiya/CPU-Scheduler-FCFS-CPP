@@ -1,14 +1,10 @@
 //Created by Tahim Bhuiya
-
-
 #include <iostream>   // for input/output operations
 #include <vector>     // for dynamic arrays (std::vector)
 #include <queue>      // for queue data structure (std::queue)
 #include <tuple>      // for returning multiple values (std::tuple)
 #include <iomanip>    // for formatted output (std::setprecision, std::setw)
 #include <algorithm>  // for algorithms like std::min_element
-
-
 
 using namespace std;  // Allow usage of standard library names without std:: prefix
 
@@ -33,8 +29,6 @@ public:
         return current_burst >= burst_times.size();
     }
 };
-
-
 
 // Display the current simulation status including:
 // - The current simulation time
@@ -74,7 +68,6 @@ void display_status(
     cout << "]" << endl;
 }
 
-
 // FCFS scheduling simulation with I/O handling.
 // Returns a tuple containing:
 // - vector of completed processes with updated metrics,
@@ -89,7 +82,6 @@ tuple<vector<Process*>, double, int> fcfs_scheduling(vector<Process*>& processes
     vector<pair<Process*, int>> io_list;       // List of processes currently in I/O with their completion times
     vector<Process*> completed_processes;      // List to store processes that have completed execution
     int cpu_busy_time = 0;                      // Total time CPU is actively executing processes
-
 
     // Continue simulation while there are processes either ready or performing I/O
     while (!ready_queue.empty() || !io_list.empty()) {
@@ -145,7 +137,6 @@ tuple<vector<Process*>, double, int> fcfs_scheduling(vector<Process*>& processes
                 cout << "Process P" << process->pid << " has completed its total execution." << endl;
             }
 
-
         } else {
             // If no process is ready to run, advance time to the next I/O completion
             if (!io_list.empty()) {
@@ -158,7 +149,6 @@ tuple<vector<Process*>, double, int> fcfs_scheduling(vector<Process*>& processes
         }
     }
 
-
     // Total simulation time is the final value of the simulation clock
     int total_time = current_time;
 
@@ -169,7 +159,6 @@ tuple<vector<Process*>, double, int> fcfs_scheduling(vector<Process*>& processes
     return {completed_processes, cpu_utilization, total_time};
 
 }
-
 
 int main() {
     // Create and initialize a list of 8 processes
@@ -188,14 +177,12 @@ int main() {
         new Process(8, {4, 5, 6, 14, 16, 6}, {14, 33, 51, 73, 87})
     };
 
-
     // Run the FCFS scheduling simulation
     // Returns:
     // - completed_processes: list of all processes after completion with their metrics
     // - cpu_utilization: percentage of time CPU was busy
     // - total_time: total time taken to complete all processes
     auto [completed_processes, cpu_utilization, total_time] = fcfs_scheduling(processes);
-
 
     // Initialize totals for performance metrics
     int total_waiting_time = 0, total_turnaround_time = 0, total_response_time = 0;
@@ -208,7 +195,6 @@ int main() {
         total_response_time += p->response_time;
     }
 
-
     // Calculate average performance metrics
     // - Average Waiting Time
     // - Average Turnaround Time
@@ -216,7 +202,6 @@ int main() {
     double avg_waiting_time = total_waiting_time / (double)num_processes;
     double avg_turnaround_time = total_turnaround_time / (double)num_processes;
     double avg_response_time = total_response_time / (double)num_processes;
-
 
     // Display overall results of the simulation
     cout << "\nResults at the end of the simulation:\n";
@@ -227,8 +212,6 @@ int main() {
     // Format output to 2 decimal places and display CPU utilization
     cout << fixed << setprecision(2);
     cout << "CPU Utilization: " << cpu_utilization << "%" << endl;
-
-
 
     // Print table header for individual process metrics
     // Tw  = Waiting Time, Ttr = Turnaround Time, Tr = Response Time
@@ -244,7 +227,6 @@ int main() {
              << setw(12) << p->turnaround_time
              << setw(10) << p->response_time << endl;
     }
-
 
     // Print average performance metrics across all processes
     cout << left << setw(12) << "\nAverage"
