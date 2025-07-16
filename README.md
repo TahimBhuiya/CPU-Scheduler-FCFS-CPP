@@ -16,3 +16,12 @@ This simulation models how an operating system schedules processes using the **F
 - Metrics are tracked for all processes
 
 ---
+
+## ▶️ Usage
+
+Compile and run the C++ file:
+
+```bash
+g++ "FCFS (Non-Preemptive) - C++.cpp" -o fcfs_sim
+./fcfs_sim
+```
