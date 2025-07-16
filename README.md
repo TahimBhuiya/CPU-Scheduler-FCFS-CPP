@@ -25,3 +25,12 @@ Compile and run the C++ file:
 g++ "FCFS (Non-Preemptive) - C++.cpp" -o fcfs_sim
 ./fcfs_sim
 ```
+
+The output will include:
+
+- Real-time status updates (running process, ready queue, and I/O list)  
+- Completion logs for each process  
+- A table with waiting, turnaround, and response times  
+- CPU utilization and average metrics
+
+---
