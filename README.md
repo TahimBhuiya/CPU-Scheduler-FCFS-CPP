@@ -34,3 +34,15 @@ The output will include:
 - CPU utilization and average metrics
 
 ---
+
+## 🧠 Code Description
+
+| Component                | Purpose                                                                 |
+|--------------------------|-------------------------------------------------------------------------|
+| `Process` class          | Holds burst times, I/O times, and performance metrics                   |
+| `fcfs_scheduling()`      | Main simulation logic for FCFS with I/O handling                        |
+| `display_status()`       | Prints current CPU status, ready queue, and I/O list                    |
+| `is_completed()`         | Checks whether a process finished all its CPU bursts                   |
+| Metric Computation       | Calculates average Tw, Ttr, Tr, and CPU usage percentage                |
+
+---
