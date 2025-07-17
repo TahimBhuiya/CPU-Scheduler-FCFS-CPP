@@ -61,3 +61,11 @@ The output will include:
 | CPU Utilization   | % of total time the CPU was actively working                                |
 
 ---
+
+## 📈 Example Output
+
+```
+Current Execution Time: 212
+Running Process: P4
+Ready Queue: [(6, 11), (5, 16), (7, 14), (8, 4)]
+Processes in I/O: [(2, 25)]
