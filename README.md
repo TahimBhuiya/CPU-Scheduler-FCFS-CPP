@@ -112,3 +112,10 @@ processes.push_back(new Process(9, {5, 10, 6}, {12, 15}));
 ```
 
 ---
+
+## 📣 Credits
+
+Developed by **Tahim Bhuiya**  
+Assignment – CPU Scheduling Simulation in C++
+
+🖥️ Happy Scheduling!
