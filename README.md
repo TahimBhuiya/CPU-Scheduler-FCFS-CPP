@@ -46,3 +46,18 @@ The output will include:
 | Metric Computation       | Calculates average Tw, Ttr, Tr, and CPU usage percentage                |
 
 ---
+
+## 🔧 Key Concepts
+
+| Concept           | Description                                                                 |
+|-------------------|-----------------------------------------------------------------------------|
+| CPU Burst         | Time a process requires on the CPU                                          |
+| I/O Time          | Time a process spends performing I/O between bursts                         |
+| Ready Queue       | Queue of processes waiting for CPU (ordered by arrival)                     |
+| I/O List          | Tracks processes currently performing I/O and their expected completion     |
+| Response Time     | Time from arrival to first CPU execution                                    |
+| Waiting Time      | Total time spent waiting in the ready queue                                 |
+| Turnaround Time   | Total time from arrival to completion                                       |
+| CPU Utilization   | % of total time the CPU was actively working                                |
+
+---
