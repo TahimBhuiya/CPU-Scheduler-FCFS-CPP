@@ -92,3 +92,12 @@ Average     84.75     256.50      15.38
 - Standard libraries only (`<vector>`, `<queue>`, `<tuple>`, `<iomanip>`, `<iostream>`)
 
 ---
+
+## ✅ Notes
+
+- All processes are assumed to **arrive at time 0**.  
+- I/O is **blocking** — a process returns to the ready queue only after I/O completes.  
+- FCFS is strictly **non-preemptive** and **order-based**.  
+- You can add or modify processes by editing their `burst_times` and `io_times`.
+
+---
