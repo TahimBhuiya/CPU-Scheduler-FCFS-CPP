@@ -69,3 +69,19 @@ Current Execution Time: 212
 Running Process: P4
 Ready Queue: [(6, 11), (5, 16), (7, 14), (8, 4)]
 Processes in I/O: [(2, 25)]
+
+Process P4 has completed its total execution.
+
+Results at the end of the simulation:
+Total time needed to complete all processes: 1012
+CPU Utilization: 83.47%
+
+Process     Tw        Ttr         Tr        
+P1          63        198         0         
+P2          112       312         12        
+...
+
+Average     84.75     256.50      15.38
+```
+
+---
