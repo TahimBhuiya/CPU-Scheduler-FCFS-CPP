@@ -101,3 +101,14 @@ Average     84.75     256.50      15.38
 - You can add or modify processes by editing their `burst_times` and `io_times`.
 
 ---
+
+## 🛠️ How to Customize
+
+To simulate different scenarios, simply add or modify the `Process` objects in `main()`:
+
+```cpp
+// Example:
+processes.push_back(new Process(9, {5, 10, 6}, {12, 15}));
+```
+
+---
