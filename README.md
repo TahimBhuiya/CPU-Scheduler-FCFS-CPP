@@ -85,3 +85,10 @@ Average     84.75     256.50      15.38
 ```
 
 ---
+
+## 📦 Requirements
+
+- C++11 or higher  
+- Standard libraries only (`<vector>`, `<queue>`, `<tuple>`, `<iomanip>`, `<iostream>`)
+
+---
